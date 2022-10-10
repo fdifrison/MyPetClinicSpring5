@@ -1,4 +1,4 @@
-package com.fdifrison.springframework.mypetclinic.model;
+package com.fdifrison.springframework.model;
 
 public class PetType {
     private String name;

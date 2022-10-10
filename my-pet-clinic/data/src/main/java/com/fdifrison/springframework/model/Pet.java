@@ -1,4 +1,4 @@
-package com.fdifrison.springframework.mypetclinic.model;
+package com.fdifrison.springframework.model;
 
 import java.time.LocalDate;
 
