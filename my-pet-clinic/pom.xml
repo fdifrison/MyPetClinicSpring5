@@ -4,7 +4,7 @@
 
     <groupId>com.fdifrison.springframework</groupId>
     <artifactId>my-pet-clinic</artifactId>
-    <version>0.0.3-SNAPSHOT</version>
+    <version>0.0.3</version>
 
     <name>my-pet-clinic</name>
     <description>my-pet-clinic</description>
@@ -57,7 +57,7 @@
 
     <scm>
         <developerConnection>scm:git:git@github.com:fdifrison/MyPetClinicSpring5.git</developerConnection>
-      <tag>HEAD</tag>
+      <tag>my-pet-clinic-0.0.3</tag>
   </scm>
 
 </project>
