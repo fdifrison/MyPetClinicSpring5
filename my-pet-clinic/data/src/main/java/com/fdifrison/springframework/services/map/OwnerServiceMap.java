@@ -2,9 +2,11 @@ package com.fdifrison.springframework.services.map;
 
 import com.fdifrison.springframework.model.Owner;
 import com.fdifrison.springframework.services.OwnerService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
     @Override
     public Set<Owner> findAll() {

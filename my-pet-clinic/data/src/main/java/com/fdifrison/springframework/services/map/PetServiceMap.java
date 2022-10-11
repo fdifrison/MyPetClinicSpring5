@@ -2,9 +2,11 @@ package com.fdifrison.springframework.services.map;
 
 import com.fdifrison.springframework.model.Pet;
 import com.fdifrison.springframework.services.PetService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
     @Override
     public Set<Pet> findAll() {
