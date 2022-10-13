@@ -8,6 +8,10 @@ import java.util.Set;
 
 @Service
 public class PetTypeServiceMap extends AbstractMapService<PetType, Long> implements PetTypeService {
+
+    public PetTypeServiceMap() {
+    }
+
     @Override
     public Set<PetType> findAll() {
         return super.findAll();
