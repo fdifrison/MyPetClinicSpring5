@@ -2,6 +2,8 @@ package com.fdifrison.springframework.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "pets")
@@ -21,6 +23,10 @@ public class Pet extends BaseEntity{
     public PetType getPetType() {
         return petType;
     }
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pet")
+    @Column(name = "visits")
+    private Set<Visit> visits = new HashSet<>();
 
     public void setPetType(PetType petType) {
         this.petType = petType;
@@ -48,5 +54,13 @@ public class Pet extends BaseEntity{
 
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
+    }
+
+    public Set<Visit> getVisits() {
+        return visits;
+    }
+
+    public void setVisits(Set<Visit> visits) {
+        this.visits = visits;
     }
 }
