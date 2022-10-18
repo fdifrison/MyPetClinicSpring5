@@ -69,6 +69,9 @@ public class DataLoader implements CommandLineRunner {
         owner1.setCity("Miami");
         owner1.setTelephone("1231231234");
 
+//        Example of using lombok builder
+//        owner1.builder().firstName().lastName().address().city().telephone();
+
         Pet mikesPet = new Pet();
         mikesPet.setPetType(savedDogPetType);
         mikesPet.setOwner(owner1);
