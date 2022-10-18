@@ -13,7 +13,7 @@ import java.util.Set;
 
 @Service
 @Profile("jpa")
-public class OwnerJPA implements OwnerService {
+public class OwnerJpaService implements OwnerService {
 
     @Autowired
     private OwnerRepository ownerRepository;
