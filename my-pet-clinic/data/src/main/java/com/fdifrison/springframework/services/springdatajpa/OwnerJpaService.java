@@ -2,8 +2,6 @@ package com.fdifrison.springframework.services.springdatajpa;
 
 import com.fdifrison.springframework.model.Owner;
 import com.fdifrison.springframework.repositories.OwnerRepository;
-import com.fdifrison.springframework.repositories.PetRepository;
-import com.fdifrison.springframework.repositories.PetTypeRepository;
 import com.fdifrison.springframework.services.OwnerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
@@ -17,10 +15,6 @@ public class OwnerJpaService implements OwnerService {
 
     @Autowired
     private OwnerRepository ownerRepository;
-    @Autowired
-    private PetRepository petRepository;
-    @Autowired
-    private PetTypeRepository petTypeRepository;
 
     @Override
     public Set<Owner> findAll() {
@@ -28,7 +22,7 @@ public class OwnerJpaService implements OwnerService {
     }
 
     @Override
-    public Owner findByID(Long id) {
+    public Owner findById(Long id) {
         return ownerRepository.findById(id).orElse(null);
     }
 
@@ -43,7 +37,7 @@ public class OwnerJpaService implements OwnerService {
     }
 
     @Override
-    public void deleteByID(Long id) {
+    public void deleteById(Long id) {
         ownerRepository.deleteById(id);
     }
 

@@ -22,7 +22,7 @@ public class VetJpaService implements VetService {
     }
 
     @Override
-    public Vet findByID(Long id) {
+    public Vet findById(Long id) {
         return vetRepository.findById(id).orElse(null);
     }
 
@@ -37,7 +37,7 @@ public class VetJpaService implements VetService {
     }
 
     @Override
-    public void deleteByID(Long id) {
+    public void deleteById(Long id) {
         vetRepository.deleteById(id);
     }
 }

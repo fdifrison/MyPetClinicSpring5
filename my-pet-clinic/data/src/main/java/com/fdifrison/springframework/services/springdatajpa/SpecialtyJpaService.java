@@ -24,7 +24,7 @@ public class SpecialtyJpaService implements SpecialtyService {
     }
 
     @Override
-    public Specialty findByID(Long id) {
+    public Specialty findById(Long id) {
         return specialtyRepository.findById(id).orElse(null);
     }
 
@@ -39,7 +39,7 @@ public class SpecialtyJpaService implements SpecialtyService {
     }
 
     @Override
-    public void deleteByID(Long id) {
+    public void deleteById(Long id) {
         specialtyRepository.deleteById(id);
     }
 }
