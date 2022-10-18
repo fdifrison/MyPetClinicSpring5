@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.Set;
 
 
@@ -20,7 +21,9 @@ public class SpecialtyJpaService implements SpecialtyService {
 
     @Override
     public Set<Specialty> findAll() {
-        return (Set<Specialty>) specialtyRepository.findAll();
+        Set<Specialty> specialty= new HashSet<>();
+        specialtyRepository.findAll().forEach(specialty::add);
+        return specialty;
     }
 
     @Override

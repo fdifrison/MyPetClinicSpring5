@@ -2,35 +2,41 @@ package com.fdifrison.springframework.bootstrap;
 
 import com.fdifrison.springframework.model.*;
 import com.fdifrison.springframework.services.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 
-//This class has to mimic a db, it loads some mock up data into the application at startup.. hence bootstrap dataloader
+//This class has to mimic a db, it loads some mock up data into the application at startup... hence bootstrap dataloader
 
 @Component
 public class DataLoader implements CommandLineRunner {
 
-    @Autowired
-    private  OwnerService ownerService;
-    @Autowired
-    private  VetService vetService;
-    @Autowired
-    private  PetTypeService petTypeService;
-    @Autowired
-    private  SpecialtyService specialtyService;
-    @Autowired
-    private VisitService visitService;
 
+    private final OwnerService ownerService;
+
+    private final VetService vetService;
+
+    private final PetTypeService petTypeService;
+
+    private final SpecialtyService specialtyService;
+
+    private final VisitService visitService;
+
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialtyService specialtyService, VisitService visitService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
+        this.petTypeService = petTypeService;
+        this.specialtyService = specialtyService;
+        this.visitService = visitService;
+    }
 
     @Override
     public void run(String... args) throws Exception {
 
         int count = petTypeService.findAll().size();
 
-        if (count == 0 ){
+        if (count == 0) {
             loadData();
         }
     }

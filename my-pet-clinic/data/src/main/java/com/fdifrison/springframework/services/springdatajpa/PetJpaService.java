@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Service
@@ -18,7 +19,9 @@ public class PetJpaService implements PetService {
 
     @Override
     public Set<Pet> findAll() {
-        return (Set<Pet>) petRepository.findAll();
+        Set<Pet> pet = new HashSet<>();
+        petRepository.findAll().forEach(pet::add);
+        return pet;
     }
 
     @Override

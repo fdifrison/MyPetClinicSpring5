@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.Set;
 
 
@@ -19,7 +20,9 @@ public class VisitJpaService implements VisitService {
 
     @Override
     public Set<Visit> findAll() {
-        return (Set<Visit>) visitRepository.findAll();
+        Set<Visit> visits= new HashSet<>();
+        visitRepository.findAll().forEach(visits::add);
+        return visits;
     }
 
     @Override
