@@ -3,9 +3,9 @@ package com.fdifrison.springframework.services.springdatajpa;
 import com.fdifrison.springframework.model.Owner;
 import com.fdifrison.springframework.repositories.OwnerRepository;
 import com.fdifrison.springframework.services.OwnerService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -14,8 +14,11 @@ import java.util.Set;
 @Profile("jpa")
 public class OwnerJpaService implements OwnerService {
 
-    @Autowired
-    private OwnerRepository ownerRepository;
+    private final OwnerRepository ownerRepository;
+
+    public OwnerJpaService(OwnerRepository ownerRepository) {
+        this.ownerRepository = ownerRepository;
+    }
 
     @Override
     public Set<Owner> findAll() {
@@ -25,6 +28,7 @@ public class OwnerJpaService implements OwnerService {
     }
 
     @Override
+    @Transactional()
     public Owner findById(Long id) {
         return ownerRepository.findById(id).orElse(null);
     }
@@ -48,4 +52,6 @@ public class OwnerJpaService implements OwnerService {
     public Owner findByLastName(String lastName) {
         return ownerRepository.findByLastName(lastName);
     }
+
+
 }

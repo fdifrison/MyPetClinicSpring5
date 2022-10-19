@@ -2,6 +2,7 @@ package com.fdifrison.springframework.bootstrap;
 
 import com.fdifrison.springframework.model.*;
 import com.fdifrison.springframework.services.*;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -13,6 +14,7 @@ import java.time.LocalDate;
 public class DataLoader implements CommandLineRunner {
 
 
+    @UpdateTimestamp
     private final OwnerService ownerService;
 
     private final VetService vetService;
